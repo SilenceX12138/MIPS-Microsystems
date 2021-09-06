@@ -1,0 +1,7 @@
+.vscode
+build
+bin
+*.txt
+*.zip
+*.exe
+data

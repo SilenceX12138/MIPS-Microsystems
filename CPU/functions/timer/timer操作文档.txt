@@ -1,0 +1,3 @@
+-支持在倒计时时更改count-down value并重新计数
+-timer在倒计时至0后会自动重新加载 count-down value
+-为方便查看 实际频率快于1s 可在.asm文件中更改写入timer的preset寄存器的值

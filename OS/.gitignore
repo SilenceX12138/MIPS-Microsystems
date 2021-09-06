@@ -1,0 +1,7 @@
+gxemul/fs.img
+fs/fsformat
+output
+*.o
+*.x
+*.b
+vmlinux

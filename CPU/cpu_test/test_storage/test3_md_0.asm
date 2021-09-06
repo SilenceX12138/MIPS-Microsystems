@@ -1,0 +1,11 @@
+ori $1,$0,0x9283
+lui $2,0xffff
+ori $2,$2,0xfffa
+mult $1,$2
+mfhi $4
+mflo $5
+div $1,$2
+mfhi $7
+mflo $8
+mtlo $7
+mflo $9

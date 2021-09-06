@@ -1,0 +1,13 @@
+MIPS-lite={ addu, subu, ori, lw, sw, beq, lui, j, jal, jr, nop }
+
+MIPS-C3={
+	R：{add,addu,sub,subu,and,nor,or,xor},
+	I：{addi,addiu,andi,lui,ori,xori},
+	B：{beq,blez,bltz,bgez,bgtz,bne},
+	set：{slt,sltu,slti,sltiu},
+	shf：{sll,sllv,sra,srav,srl,srlv},
+	mem：{lw,lh,lhu,lb,lbu,sw,sh,sb},
+	jump：{jal,jr,j,jalr}.
+	md：{mult,multu,mthi,mtlo,mfhi,mflo,div,divu}
+}
+

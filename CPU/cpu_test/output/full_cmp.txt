@@ -1,0 +1,3 @@
+----------mips3.asm----------
+The lengths of two files are different.
+

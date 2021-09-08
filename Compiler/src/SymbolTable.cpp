@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iomanip>
 #include <sstream>
 
@@ -155,9 +156,10 @@ Symbol SymbolTable::getRegionById(int regionId)
 
 Symbol SymbolTable::getFuncByName(string funcname)
 {
+    transform(funcname.begin(), funcname.end(), funcname.begin(), ::tolower);
     for (int i = 0; i < (int)globalSymTable.size(); i++)
     {
-        if (globalSymTable[i].getKind() == FuncSym && globalSymTable[i].getName() == funcname)
+        if (globalSymTable[i].getKind() == FuncSym && globalSymTable[i].getLowerName() == funcname)
         {
             return globalSymTable[i];
         }

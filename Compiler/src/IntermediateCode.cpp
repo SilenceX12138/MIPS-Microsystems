@@ -76,6 +76,7 @@ IntermediateCode::IntermediateCode(IntermediateCodeType type, vector<Intermediat
         break;
     case GOTO:
         this->itemList[3] = itemList[0];
+        break;
     default:
         break;
     }

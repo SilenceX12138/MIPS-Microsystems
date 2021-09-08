@@ -693,7 +693,8 @@ void SyntaxAnalysis::parseNonRetFuncCallStatement(int currentRegionId)
     assert(currentToken.isTypeof(LPARENT));
     getToken();
     parseValArgTable(currentRegionId, tempFuncToken.getText());
-    IntermediateCode::insert(Call, {IntermediateCodeItem::create(LabelItem, tempFuncToken.getText())});
+    Symbol func = SymbolTable::getFuncByName(tempFuncToken.getText());
+    IntermediateCode::insert(Call, {IntermediateCodeItem::create(LabelItem, func.getName())});
     if (!currentToken.isTypeof(RPARENT))
     {
         Error::outputError(getRelativeToken(-1).getLineNumber(), RparentMissing);
@@ -807,7 +808,8 @@ void SyntaxAnalysis::parseRetFuncCallStatement(int currentRegionId)
     assert(currentToken.isTypeof(LPARENT));
     getToken();
     parseValArgTable(currentRegionId, tempFuncToken.getText());
-    IntermediateCode::insert(Call, {IntermediateCodeItem::create(LabelItem, tempFuncToken.getText())});
+    Symbol func = SymbolTable::getFuncByName(tempFuncToken.getText());
+    IntermediateCode::insert(Call, {IntermediateCodeItem::create(LabelItem, func.getName())});
     if (!currentToken.isTypeof(RPARENT))
     {
         Error::outputError(getRelativeToken(-1).getLineNumber(), RparentMissing);
@@ -1251,7 +1253,7 @@ void SyntaxAnalysis::parseVarDefinitionInit(int currentRegionId)
             getToken();
             assert(currentToken.isTypeof(LBRACE));
             getToken();
-            while (true)
+            while (!currentToken.isTypeof(RBRACE))
             {
                 tempConst = parseConstValue(targetType);
                 if (targetType != defSymbolType)
@@ -1303,12 +1305,12 @@ void SyntaxAnalysis::parseVarDefinitionInit(int currentRegionId)
             assert(currentToken.isTypeof(LBRACE));
             getToken();
             int currentInitDim = 0;
-            while (true)
+            while (!currentToken.isTypeof(RBRACE))
             {
                 currentInitDim = 0;
                 assert(currentToken.isTypeof(LBRACE));
                 getToken();
-                while (true)
+                while (!currentToken.isTypeof(RBRACE))
                 {
                     tempConst = parseConstValue(targetType);
                     if (targetType != defSymbolType)
@@ -1436,6 +1438,14 @@ void SyntaxAnalysis::parseWriteStatement(int currentRegionId)
     {
         tempExprType = UndefSymType;
         parseExpression(currentRegionId, tempExprType, targetItem);
+        IntermediateCodeItem tempItem;
+        // 输出时可能需要类型转换
+        if (!Error::hasError && targetItem.isTypeof(SymItem) && targetItem.getSym().getType() != tempExprType)
+        {
+            tempItem = IntermediateCodeItem::create(SymItem, to_string(tempExprType == CharSym ? SymbolTable::createTempChar(currentRegionId) : SymbolTable::createTempInt(currentRegionId)));
+            IntermediateCode::insert(Assign, {targetItem, tempItem});
+            targetItem = tempItem;
+        }
         if (!currentToken.isTypeof(RPARENT))
         {
             Error::outputError(getRelativeToken(-1).getLineNumber(), RparentMissing);
@@ -1450,7 +1460,6 @@ void SyntaxAnalysis::parseWriteStatement(int currentRegionId)
     parseCharString();
     string tempStr = getRelativeToken(-1).getText();
     tempStr = omitEscape(tempStr);
-    IntermediateCode::insert(Write, {IntermediateCodeItem::create(StrItem, to_string(SymbolTable::createGlobalStr(tempStr)))});
     if (currentToken.isTypeof(COMMA))
     {
         getToken();
@@ -1458,13 +1467,18 @@ void SyntaxAnalysis::parseWriteStatement(int currentRegionId)
         parseExpression(currentRegionId, tempExprType, targetItem);
         IntermediateCodeItem tempItem;
         // 输出时可能需要类型转换
-        if (targetItem.isTypeof(SymItem) && targetItem.getSym().getType() != tempExprType)
+        if (!Error::hasError && targetItem.isTypeof(SymItem) && targetItem.getSym().getType() != tempExprType)
         {
             tempItem = IntermediateCodeItem::create(SymItem, to_string(tempExprType == CharSym ? SymbolTable::createTempChar(currentRegionId) : SymbolTable::createTempInt(currentRegionId)));
             IntermediateCode::insert(Assign, {targetItem, tempItem});
             targetItem = tempItem;
         }
+        IntermediateCode::insert(Write, {IntermediateCodeItem::create(StrItem, to_string(SymbolTable::createGlobalStr(tempStr)))});
         IntermediateCode::insert(Write, {targetItem});
+    }
+    else
+    {
+        IntermediateCode::insert(Write, {IntermediateCodeItem::create(StrItem, to_string(SymbolTable::createGlobalStr(tempStr)))});
     }
     if (!currentToken.isTypeof(RPARENT))
     {

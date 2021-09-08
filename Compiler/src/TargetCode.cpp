@@ -223,7 +223,7 @@ void TargetCode::transLoadArr()
     IntermediateCodeItem arrItem = currentCode.itemList[0];
     IntermediateCodeItem idxItem = currentCode.itemList[1];
     IntermediateCodeItem targetItem = currentCode.itemList[2];
-    Register idxReg = load2Reg(idxItem);
+    Register idxReg = load2Reg(idxItem, $v0); // 使用$v0存储数组索引
     Register targetReg = load2Reg();
     sll(idxReg, idxReg, 2);
     add(idxReg, idxReg, arrItem.getSym().getAddr());
@@ -240,7 +240,7 @@ void TargetCode::transSaveArr()
     IntermediateCodeItem arrItem = currentCode.itemList[0];
     IntermediateCodeItem idxItem = currentCode.itemList[1];
     IntermediateCodeItem valItem = currentCode.itemList[2];
-    Register idxReg = load2Reg(idxItem);
+    Register idxReg = load2Reg(idxItem, $v0); // 使用$v0存储数组索引
     Register valReg = load2Reg(valItem);
     sll(idxReg, idxReg, 2);
     add(idxReg, idxReg, arrItem.getSym().getAddr());

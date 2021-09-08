@@ -37,10 +37,22 @@ void createAnalyzefile()
         cout << "Colpiler Feedback: Source code file is empty, Compilation aborted." << endl;
         return;
     }
-    LexicalAnalysis::startLexicalAnalyze();
-    SyntaxAnalysis::startSyntaxAnalyze();
-    SymbolTable::display();
-    createLogfile();
+    try
+    {
+        LexicalAnalysis::startLexicalAnalyze();
+        SyntaxAnalysis::startSyntaxAnalyze();
+        SymbolTable::display();
+        createLogfile();
+    }
+    catch (exception e)
+    {
+        if (Error::hasError)
+        {
+            createErrorfile();
+            cout << "Compiler Feedback: Error occurs, Compilation aborted." << endl;
+        }
+        return;
+    }
     if (Error::hasError)
     {
         createErrorfile();
@@ -48,7 +60,7 @@ void createAnalyzefile()
         return;
     }
     IntermediateCode::startIntermediateCodeGenerate();
-    Optmization::startOptimize();
+    // Optmization::startOptimize();
     createProcfile();
     TargetCode::startTargetCodeGenerate();
     createMipsfile();

@@ -2,7 +2,7 @@
 
 > There may be some display mistakes due to GitHub Markdown interpreter, so you can download and read this tutorial.
 
-**The full text has a total of `19927` characters, and the recommended reading time is `3~5` hours.**
+**The full text has a total of `19927` words, and the recommended reading time is `3~5` hours.**
 
 This is a compiler of `C0` language.
 

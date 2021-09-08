@@ -2,7 +2,7 @@
 
 > There may be some display mistakes due to GitHub Markdown interpreter, so you can download and read this tutorial.
 
-**The full text has a total of `10536` characters, and the recommended reading time is `2~3` hours.**
+**The full text has a total of `10536` words, and the recommended reading time is `2~3` hours.**
 
 `MOS` is the name of this Linux kernel operating system. This project is divided into 5 labs from basic bootstrap to file system. Hope you can enjoy it!
 

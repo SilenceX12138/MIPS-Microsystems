@@ -870,7 +870,7 @@ Through the design and implementation of error handling, a few thoughts and expe
 * When designing a stage, you can't just consider one stage. This usually results in low scalability of the architecture and brings unnecessary workload to the subsequent stages. Therefore, before you start, you must first think about the requirements of this stage, and link it with other stages for analysis, so that you can elegantly carry out incremental development.
 * The characteristic of error handling is the unpredictability of the document. Therefore, it is necessary to be targeted when analyzing error types, and make full use of the grammatical structure that will not cause problems to simplify problem analysis, so that the realization of error handling is not so bloated and complicated. This also proves from another aspect that a good architecture involves making development work more effective.
 
-# 5 code generation
+# 5 Code Generation
 
 ## 5.1 Design Ideas
 
@@ -1402,7 +1402,7 @@ Take the maintenance of the running stack when a function is called. Different `
 
 In the author's opinion, the design work in the code generation stage is very important, which not only determines the quality of the target code, but also directly affects the architecture of the front and back end interfaces of the entire compiler. So before you get started, it's better to pick up a pen and plan the project structure. This often brings twice the result with half the effort.
 
-# 6 code optimization
+# 6 Code Optimization
 
 ## 6.1 Machine Independent Optimization
 

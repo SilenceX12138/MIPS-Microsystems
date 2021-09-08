@@ -1,5 +1,3 @@
-<TOC>
-
 # MIPS CPU
 
 > There may be some display mistakes due to GitHub Markdown interpreter, so you can download and read this tutorial.

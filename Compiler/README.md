@@ -20,7 +20,7 @@ The design document will give a detailed introduction to the implementation proc
 
 If readers encounter any problems during the reading process, please contact silencejiang12138@gmail.com, and the author will try to reply as soon as possible.
 
-#1 Grammar interpretation
+# 1 Grammar Interpretation
 
 ## 1.1 Rules
 

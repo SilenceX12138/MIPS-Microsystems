@@ -1,6 +1,6 @@
-# Leopard
+# Leopard Compiler
 
-The full text has a total of `19927` characters, and the recommended reading time is `3~5` hours.
+**The full text has a total of `19927` characters, and the recommended reading time is `3~5` hours.**
 
 This is a compiler of `C0` language.
 
@@ -22,21 +22,21 @@ If readers encounter any problems during the reading process, please contact sil
 
 ## 1.1 Rules
 
-**1. <Addition operator> ::= +｜-**
+**1. \<Addition operator\> ::= +｜-**
 
-**2. <Multiplication Operator> ::= \*｜/**
+**2. \<Multiplication Operator\> ::= \*｜/**
 
-**3. <Relational Operator> ::= <｜<=｜>｜>=｜!=｜==**
+**3. \<Relational Operator\> ::= \<｜\<=｜\>｜\>=｜!=｜==**
 
-**4. <Letter> ::= ＿｜a｜. . . ｜z｜A｜. . . ｜Z**
+**4. \<Letter\> ::= ＿｜a｜. . . ｜z｜A｜. . . ｜Z**
 
-**5. <Number> ::= 0｜１｜. . . ｜九**
+**5. \<Number\> ::= 0｜1｜. . . ｜9**
 
-**6. <Character> ::='<Addition operator>'｜'<Multiplication operator>'｜'<Letter>'｜'<Number>'**
+**6. \<Character\> ::='\<Addition operator\>'｜'\<Multiplication operator\>'｜'\<Letter\>'｜'\<Number\>'**
 
 * `'` is **terminator**
 
-**7. <String> ::= "{ASCII characters with decimal code 32,33,35-126}"**
+**7. \<String\> ::= "{ASCII characters with decimal code 32,33,35-126}"**
 
 * At least one character is required in the string
 * 32: Space
@@ -44,21 +44,21 @@ If readers encounter any problems during the reading process, please contact sil
 * 34: double quotes
 * 39: single quotation mark
 
-**8. <Program> ::= [<Constant description>] [<Variable description>] {<Function definition with return value>|<Function definition without return value>}<Main function>**
+**8. \<Program\> ::= [\<Constant description\>] [\<Variable description\>] {\<Function definition with return value\>|\<Function definition without return value\>}\<Main function\>**
 
 **9. ＜Constant description＞ ::= const＜constant definition＞;{ const＜constant definition＞;}**
 
-**10. <Constant Definition> ::= int<Identifier>=<Integer>{,<Identifier>=<Integer>} | char<Identifier>=<Character>{,<Identifier>=<Character ＞}**
+**10. \<Constant Definition\> ::= int\<Identifier\>=\<Integer\>{,\<Identifier\>=\<Integer\>} | char\<Identifier\>=\<Character\>{,\<Identifier\>=\<Character ＞}**
 
 **11. ＜Unsigned integer＞ ::= ＜Number＞{＜Number＞}**
 
-**12. <Integer> ::= [＋｜－] <Unsigned integer>**
+**12. \<Integer\> ::= [＋｜－] \<Unsigned integer\>**
 
-**13. <Identifier> ::= <Letter> {<Letter>｜<Number>}**
+**13. \<Identifier\> ::= \<Letter\> {\<Letter\>｜\<Number\>}**
 
 * Identifiers and reserved words are not case sensitive. For example, if and IF are reserved words, the same identifiers as reserved words are not allowed.
 
-**14. <Declaration header> ::= int<identifier> |char<identifier>**
+**14. \<Declaration header\> ::= int\<identifier\> |char\<identifier\>**
 
 **15. ＜Constant＞ ::= ＜Integer＞|＜Character＞**
 
@@ -66,9 +66,9 @@ If readers encounter any problems during the reading process, please contact sil
 
 **17. ＜Variable definition＞ ::= ＜Variable definition without initialization＞|＜Variable definition and initialization＞**
 
-**18. <Variable definition without initialization> ::= <Type identifier>(<Identifier>|<Identifier>'['<Unsigned integer>']'|<Identifier>'['＜Unsigned Integer>']''['<Unsigned Integer>']'){,(<Identifier>|<Identifier>'['<Unsigned Integer>']'|<Identifier>'['<None Signed integer>']''['<unsigned integer>']' )}**
+**18. \<Variable definition without initialization\> ::= \<Type identifier\>(\<Identifier\>|\<Identifier\>'['\<Unsigned integer\>']'|\<Identifier\>'['＜Unsigned Integer\>']''['\<Unsigned Integer\>']'){,(\<Identifier\>|\<Identifier\>'['\<Unsigned Integer\>']'|\<Identifier\>'['\<None Signed integer\>']''['\<unsigned integer\>']' )}**
 
-* Variables include simple variables, one-dimensional and two-dimensional arrays. <Unsigned integer> represents the number of elements in each dimension of the array, and its value must be greater than 0. The array elements are stored in row priority.
+* Variables include simple variables, one-dimensional and two-dimensional arrays. \<Unsigned integer\> represents the number of elements in each dimension of the array, and its value must be greater than 0. The array elements are stored in row priority.
 
 * When the variable is not initialized **no initial value**
 
@@ -76,77 +76,77 @@ If readers encounter any problems during the reading process, please contact sil
 
   ＜Variable definition without initialization＞ ::=
 
-  <Type identifier> <Identifier>
+  \<Type identifier\> \<Identifier\>
 
-  ('['<unsigned integer>']'|'['<unsigned integer>']''['<unsigned integer>']'|<empty>)
+  ('['\<unsigned integer\>']'|'['\<unsigned integer\>']''['\<unsigned integer\>']'|\<empty\>)
 
-  {,(<Identifier>|<Identifier>'['<Unsigned integer>']'|<Identifier>'['<Unsigned integer>']''['<Unsigned integer>']' )}
+  {,(\<Identifier\>|\<Identifier\>'['\<Unsigned integer\>']'|\<Identifier\>'['\<Unsigned integer\>']''['\<Unsigned integer\>']' )}
 
-**19. <Variable definition and initialization> ::= <Type identifier><Identifier>=<Constant>|<Type identifier><Identifier>'['<Unsigned integer>']'='{ '<constant>{,<constant>}'}'|<type identifier><identifier>'['<unsigned integer>']''['<unsigned integer>']'='{'' {'<Constant>{,<Constant>}'}'{,'{'<Constant>{,<Constant>}'}'}'}'**
+**19. \<Variable definition and initialization\> ::= \<Type identifier\>\<Identifier\>=\<Constant\>|\<Type identifier\>\<Identifier\>'['\<Unsigned integer\>']'='{ '\<constant\>{,\<constant\>}'}'|\<type identifier\>\<identifier\>'['\<unsigned integer\>']''['\<unsigned integer\>']'='{'' {'\<Constant\>{,\<Constant\>}'}'{,'{'\<Constant\>{,\<Constant\>}'}'}'}'**
 
-* Simple variables, one-dimensional and two-dimensional arrays can be assigned initial values ​​when they are declared. <Unsigned integer> represents the number of elements in each dimension of the array, and its value must be greater than 0. The array elements are stored in line first, <constant> The type of should be exactly the same as the <type identifier>, otherwise an error will be reported; the number of initial values ​​of each dimension is consistent with the number of elements of the dimension, otherwise an error will be reported, and there will be no default value.
+* Simple variables, one-dimensional and two-dimensional arrays can be assigned initial values ​​when they are declared. \<Unsigned integer\> represents the number of elements in each dimension of the array, and its value must be greater than 0. The array elements are stored in line first, \<constant\> The type of should be exactly the same as the \<type identifier\>, otherwise an error will be reported; the number of initial values ​​of each dimension is consistent with the number of elements of the dimension, otherwise an error will be reported, and there will be no default value.
 
 * Extract the common factor:
 
-  <Variable definition and initialization> ::=
+  \<Variable definition and initialization\> ::=
 
-  <Type identifier> <Identifier>
+  \<Type identifier\> \<Identifier\>
 
-  (=<constant>|'['<unsigned integer>']'='{'<constant>{,<constant>}'}'|'['<unsigned integer>']''['＜none Signed integer>']'='{''{'<constant>{,<constant>}'}'{,'{'<constant>{,<constant>}'}'}'}')
+  (=\<constant\>|'['\<unsigned integer\>']'='{'\<constant\>{,\<constant\>}'}'|'['\<unsigned integer\>']''['＜none Signed integer\>']'='{''{'\<constant\>{,\<constant\>}'}'{,'{'\<constant\>{,\<constant\>}'}'}'}')
 
-**20. <Type identifier> ::= int | char**
+**20. \<Type identifier\> ::= int | char**
 
 **21. ＜Function definition with return value＞ ::= ＜Declaration head＞'('＜Parameter table＞')''{'＜Compound statement＞'}'**
 
 **22. ＜No return value function definition＞ ::= void＜identifier＞'('＜Parameter table＞')''{'＜Compound statement＞'}'**
 
-**23. <Compound sentence> ::= [<Constant description>] [<Variable description>] <Sentence list>**
+**23. \<Compound sentence\> ::= [\<Constant description\>] [\<Variable description\>] \<Sentence list\>**
 
 **24. ＜Parameter table＞ ::= ＜type identifier＞＜identifier＞{,＜type identifier＞＜identifier＞}| ＜empty＞**
 
 **25. ＜Main function＞ ::= void main'('')''{'＜Compound statement＞'}'**
 
-**26. <Expression> ::= [＋｜－] <term> {<addition operator> <term>}**
+**26. \<Expression\> ::= [＋｜－] \<term\> {\<addition operator\> \<term\>}**
 
-* [+|-] only works on the **first**<item>
+* [+|-] only works on the **first**\<item\>
 
 **27. ＜term＞ ::= ＜factor＞ {＜multiplication operator＞＜factor＞}**
 
-**28. <factor> ::= <identifier>｜<identifier>'['<expression>']'|<identifier>'['<expression>']''['<expression ＞']'|'('<Expression>')'｜<Integer>|<Character>|<Function call statement with return value>**
+**28. \<factor\> ::= \<identifier\>｜\<identifier\>'['\<expression\>']'|\<identifier\>'['\<expression\>']''['\<expression ＞']'|'('\<Expression\>')'｜\<Integer\>|\<Character\>|\<Function call statement with return value\>**
 
 * For variables or constants of char type, use the integer corresponding to the character's ASCII code to participate in the operation.
-* The <expression> in <identifier>'['<expression>']' and <identifier>'['<expression>']''['<expression>']' can only be integers Type, the subscript starts from 0.
-* A single <identifier> does not include the array name, that is, the array cannot participate in the operation as a whole, and the array elements can participate in the operation.
+* The \<expression\> in \<identifier\>'['\<expression\>']' and \<identifier\>'['\<expression\>']''['\<expression\>']' can only be integers Type, the subscript starts from 0.
+* A single \<identifier\> does not include the array name, that is, the array cannot participate in the operation as a whole, and the array elements can participate in the operation.
 
-**29. <Sentence> ::= <Loop statement>｜<Conditional statement>| <Function call statement with return value>; |<Function call statement without return value>;｜<Assignment statement>;｜<Read statement> ;｜<write sentence>;｜<case sentence>｜<empty>;|<return sentence>; |'{'<sentence list>'}'**
+**29. \<Sentence\> ::= \<Loop statement\>｜\<Conditional statement\>| \<Function call statement with return value\>; |\<Function call statement without return value\>;｜\<Assignment statement\>;｜\<Read statement\> ;｜\<write sentence\>;｜\<case sentence\>｜\<empty\>;|\<return sentence\>; |'{'\<sentence list\>'}'**
 
-**30. <Assignment Statement> ::= <Identifier>=<Expression>|<Identifier>'['<Expression>']'=<Expression>|<Identifier>'['<Expression Formula>']''['<Expression>']' =<Expression>**
+**30. \<Assignment Statement\> ::= \<Identifier\>=\<Expression\>|\<Identifier\>'['\<Expression\>']'=\<Expression\>|\<Identifier\>'['\<Expression Formula\>']''['\<Expression\>']' =\<Expression\>**
 
-* <Identifier>=<Identifier> in <Expression> cannot be a constant name or an array name
+* \<Identifier\>=\<Identifier\> in \<Expression\> cannot be a constant name or an array name
 
-**31. <conditional statement> ::= if'('<condition>')'<sentence> [else<sentence>]**
+**31. \<conditional statement\> ::= if'('\<condition\>')'\<sentence\> [else\<sentence\>]**
 
-**32. <condition> ::= <expression> <relational operator> <expression>**
+**32. \<condition\> ::= \<expression\> \<relational operator\> \<expression\>**
 
 * Expressions must be of integer type in order to be compared
 
-**33. <Loop statement> ::= while'('<condition>')'<sentence>| for'('<Identifier>=<Expression>;<Condition>;<Identifier>=<Identification Symbol>(+|-)<step>')'<sentence>**
+**33. \<Loop statement\> ::= while'('\<condition\>')'\<sentence\>| for'('\<Identifier\>=\<Expression\>;\<Condition\>;\<Identifier\>=\<Identification Symbol\>(+|-)\<step\>')'\<sentence\>**
 
 * for statement **Condition judgment first**, then enter the loop body if the conditions are met
 
 **34. ＜Step length＞::= ＜Unsigned integer＞**
 
-**35. <Case statement> ::= switch'('<Expression>')''{'<Case table><default>'}'**
+**35. \<Case statement\> ::= switch'('\<Expression\>')''{'\<Case table\>\<default\>'}'**
 
-**36. <Situation table> ::= ＜Case sub-sentence> {<Case sub-sentence>}**
+**36. \<Situation table\> ::= ＜Case sub-sentence\> {\<Case sub-sentence\>}**
 
-**37. <Case sub-statement> ::= case<constant>: <statement>**
+**37. \<Case sub-statement\> ::= case\<constant\>: \<statement\>**
 
-**38. <default> ::= default: <sentence>**
+**38. \<default\> ::= default: \<sentence\>**
 
 * In the case statement, only int and char types are allowed in the expression after switch and the constant after case; after each case statement is executed, the subsequent case statement is not executed.
 
-**39. <Function call statement with return value> ::= <Identifier>'('<Value parameter list>')'**
+**39. \<Function call statement with return value\> ::= \<Identifier\>'('\<Value parameter list\>')'**
 
 **40. ＜No return value function call statement＞ ::= ＜identifier＞'('＜Value parameter table＞')'**
 
@@ -157,11 +157,11 @@ If readers encounter any problems during the reading process, please contact sil
 * The expression of the actual parameter cannot be an array name, but an array element.
 * The calculation sequence of the actual parameters requires that the generated object code run result is consistent with the run result of the Clang8.0.1 compiler.
 
-**42. <Sentence list> ::= ｛<Sentence>}**
+**42. \<Sentence list\> ::= ｛\<Sentence\>}**
 
-**43. <Reading sentence> ::= scanf'('<Identifier>')'**
+**43. \<Reading sentence\> ::= scanf'('\<Identifier\>')'**
 
-* Obtain the value of <identifier> from standard input. The identifier cannot be a constant name or an array name.
+* Obtain the value of \<identifier\> from standard input. The identifier cannot be a constant name or an array name.
 * When the generated PCODE or MIPS assembly is running, for each scanf statement, no matter the type of the identifier is char or int, a carriage return is required at the end; the input data in the testin.txt file is also on one line for each item
 * Follow the usage of syscall instruction when generating MIPS assembly
 
@@ -169,10 +169,10 @@ If readers encounter any problems during the reading process, please contact sil
 
 * When printf'(' ＜string＞,＜expression＞')' is output, first output the content of the string, and then output the value of the expression, there is no space between the two.
 * When the expression is a character type, output characters; when it is an integer type, output an integer.
-* <string> output as is** (no escape)**
+* \<string\> output as is** (no escape)**
 * The content of each printf statement is output to one line and processed as a newline character at the end \n.
 
-**45. <Return Statement> ::= return['('<Expression>')']**
+**45. \<Return Statement\> ::= return['('\<Expression\>')']**
 
 * There can be no return statement in a function with no return value, or a statement like `return;`
 * A function with a return value only needs to appear ** a ** return statement with a return value (expression with parentheses), and there is no need to check whether each branch has a return statement with a return value.
@@ -181,17 +181,17 @@ If readers encounter any problems during the reading process, please contact sil
 
 * The expression type is char type, there are the following three situations
 
-  * The expression is composed of <identifier>, <identifier>'['<expression>'] and <identifier>'['<expression>']''['<expression>']', and The type of <identifier> is char, that is, constants and variables of the char type, and one-dimensional and two-dimensional array elements of the char type.
+  * The expression is composed of \<identifier\>, \<identifier\>'['\<expression\>'] and \<identifier\>'['\<expression\>']''['\<expression\>']', and The type of \<identifier\> is char, that is, constants and variables of the char type, and one-dimensional and two-dimensional array elements of the char type.
 
-  * The expression consists of only one <character>, which is a character literal.
+  * The expression consists of only one \<character\>, which is a character literal.
 
   * The expression consists only of a function call with a return value, and the return value of the called function is char type.
 
-  > In all other cases, the type of <expression> is `int`.
+  > In all other cases, the type of \<expression\> is `int`.
 
 * **Type conversion only occurs in **expression calculation. Once the character type participates in the operation, it is converted into an integer type, including the character type enclosed in parentheses**, which is also considered to participate in the operation, such as ('c' ) The result is an integer.
 
-* In other cases, such as assignment, function parameter passing, and relationship comparison in if/while conditional statements require **type exact match**, and the relationship comparison in <condition> can only be a comparison between integer types, not a character type.
+* In other cases, such as assignment, function parameter passing, and relationship comparison in if/while conditional statements require **type exact match**, and the relationship comparison in \<condition\> can only be a comparison between integer types, not a character type.
 
 ## 1.3 Q&A
 
@@ -215,7 +215,7 @@ If readers encounter any problems during the reading process, please contact sil
 
   The `printf` function will add a newline by default after the compiler processes it. If the string itself has `n` newline characters, it will output `(n+1)` newline characters.
 
-* Need to add `;` after `<empty>` statement
+* Need to add `;` after `\<empty\>` statement
 
   It depends on the rules, which is required in Rule 29. However, there is no need to add any content between the curly braces if there is no sentence corresponding to Rule 42.
 
@@ -275,9 +275,9 @@ At the same time, we noticed that, unlike grammatical analysis, the recursive op
 ```mermaid
 graph TD
 
-other_parts --> Lexical_analysis
-Lexical_analysis-->other_parts
-Lexical_analysis-->source_code_documentation
+other_parts --\> Lexical_analysis
+Lexical_analysis--\>other_parts
+Lexical_analysis--\>source_code_documentation
 ```
 
 
@@ -314,12 +314,12 @@ In summary, the last method I took was to find the `FIRST` array of all symbols,
 | 8 | / | DIV |
 | 9 |: | COLON |
 | 10 |; | SEMICN |
-| 11 | <| LSS |
-| 12 | <= | LEQ |
+| 11 | \< | LSS |
+| 12 | \<= | LEQ |
 | 13 | = | ASSIGN |
 | 14 | == | EQL |
-| 15 |> | GRE |
-| 16 | >= | GEQ |
+| 15 |\> | GRE |
+| 16 | \>= | GEQ |
 | 17 | [| LBRACK |
 | 18 |] | RBRACK |
 | 19 | case | CASETK |
@@ -419,7 +419,7 @@ The first pre-reading is for the subroutine to directly start the analysis accor
 
 However, there is another situation in grammatical analysis: the judgment of a character that is not a grammatical component. This type of judgment does not need to call a subroutine, so the character update needs to be done manually. Although the subroutine is not called, we can regard the judgment logic of these characters as a subroutine**, so we can update it after judging the character.
 
-It should be noted that not all non-grammatical component characters need to be updated after judgment. Because there is a type of judgment for matching the `FIRST` array, such as the matching of `+/-` before entering the integer subroutine, they may still be used in the subroutine and therefore cannot be updated; but in another In this case, for example, before calling <constant definition> by <constant description>, it is necessary to judge whether it is `const`. After the judgment is finished, because `const` is no longer used in the subroutine, the characters need to be updated. **To sum up, whether the non-grammatical component is updated after judgment depends on whether it will be used in the next analysis, if it is, then it will not be updated, otherwise it will be updated. **
+It should be noted that not all non-grammatical component characters need to be updated after judgment. Because there is a type of judgment for matching the `FIRST` array, such as the matching of `+/-` before entering the integer subroutine, they may still be used in the subroutine and therefore cannot be updated; but in another In this case, for example, before calling \<constant definition\> by \<constant description\>, it is necessary to judge whether it is `const`. After the judgment is finished, because `const` is no longer used in the subroutine, the characters need to be updated. **To sum up, whether the non-grammatical component is updated after judgment depends on whether it will be used in the next analysis, if it is, then it will not be updated, otherwise it will be updated. **
 
 
 
@@ -461,23 +461,23 @@ A:
 
   It means that the number of occurrences of the element is arbitrary, use the `while` loop to solve it, and jump out when the `FIRST` judges illegal.
 
-  > For a single `{}`, such as `{<Statement>}`, it can be rewritten as `<Statement>{<Statement>}|<Empty>` before processing.
+  > For a single `{}`, such as `{\<Statement\>}`, it can be rewritten as `\<Statement\>{\<Statement\>}|\<Empty\>` before processing.
   >
-  > It is worth noting that this `<empty>` is not the same as a compound statement because the statement column is empty. Because the compound statement must call the sub-functions of the statement column anyway, but the statement column does not need to call the statement sub-functions.
+  > It is worth noting that this `\<empty\>` is not the same as a compound statement because the statement column is empty. Because the compound statement must call the sub-functions of the statement column anyway, but the statement column does not need to call the statement sub-functions.
   >
   > ```c++
   > {
   >
   >}
-  > // <statement list>
-  > // <compound statement>
+  > // \<statement list\>
+  > // \<compound statement\>
   >
   > {
   >;
   >}
-  > // <statement>
-  > // <statement list>
-  > // <compound statement>
+  > // \<statement\>
+  > // \<statement list\>
+  > // \<compound statement\>
   > ```
 
 
@@ -499,7 +499,7 @@ Through the above two analysis, it can be known that a subroutine has two places
 
 ### 3.1.1 Special circumstances
 
-* If it is the "<component> output" after the subroutine, there is no need for `outputAnalyzedTokenBuffer()`. Because the next character has been output at the end of the subroutine and the next character is pre-read, if you return to the calling function at this time If you output it again later, there will be a problem.
+* If it is the "\<component\> output" after the subroutine, there is no need for `outputAnalyzedTokenBuffer()`. Because the next character has been output at the end of the subroutine and the next character is pre-read, if you return to the calling function at this time If you output it again later, there will be a problem.
 
 * It is not necessary to call the subroutine before `updateToken()`, such as the unsigned integer resolution in the step size analysis, only when the current module **real** uses the `currentToken` and then calls the subroutine, `update` is required .
 
@@ -706,8 +706,8 @@ A: Special judgment is required when parsing function call statements
 | l | Should be the right parenthesis `')'` | There should be no right parenthesis where the right parenthesis should appear, such as `fun(a,b;`, missing right parenthesis (with/without parameter function definition, main function) , Expressions with parentheses, `if`, `while`, `for`, `switch`, function call with/without parameters, read, write, `return`). |
 | m | Should be the right square bracket `']'` | There should be no right square bracket where the right square bracket should appear, for example, `int arr[2;` is missing the right square bracket (one-dimensional/two-dimensional array variable definition yes/no Initialization, one-dimensional/two-dimensional array elements in factors, array elements in assignment statements). |
 | n | The initial number of arrays does not match | The number of elements in any dimension does not match, or an error is reported if the number of elements in a certain dimension is missing. For example, `int a[2][2]={{1,2,3},{1,2}}`. |
-| o | The type of the <constant> is inconsistent | The variable definition and initialization and the <constant> in the `switch` statement must be consistent with the declared type. `int x=’c’;int y;switch(y){case('1')...}` |
-| p | Missing default statement | In the `switch` statement, the <default> statement is missing. |
+| o | The type of the \<constant\> is inconsistent | The variable definition and initialization and the \<constant\> in the `switch` statement must be consistent with the declared type. `int x=’c’;int y;switch(y){case('1')...}` |
+| p | Missing default statement | In the `switch` statement, the \<default\> statement is missing. |
 
 ### 4.2.1 Convention
 
@@ -831,7 +831,7 @@ A: Special judgment is required when parsing function call statements
 
 * `o`
 
-  * **Only** the <constant> in <variable definition and initialization> and <condition substatement> need to be checked for the same type
+  * **Only** the \<constant\> in \<variable definition and initialization\> and \<condition substatement\> need to be checked for the same type
 
 * `p`
 
@@ -876,7 +876,7 @@ Through the design and implementation of error handling, a few thoughts and expe
 
 Before completing the code generation job, I first reviewed the entire compilation process: five stages and symbol table management and error handling throughout. The reason for this is simple: the code generation phase is a real leap from the front end of the compiler to the back end, so it is particularly important to grasp the front-end and back-end boundaries.
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/compilerDesign.jpg" alt="img" style="zoom:50%;" />
+\<img src="https://media.geeksforgeeks.org/wp-content/uploads/compilerDesign.jpg" alt="img" style="zoom:50%;" /\>
 
 In class, the teacher said that the dividing line between the front and back ends is the dividing line between the intermediate code and the target code. It sounds like this. After all, no matter what the intermediate code looks like, as long as there is corresponding logic, the intermediate code can be translated into the machine on the specified target machine. Code, then the front end and back end of the compiler are decoupled. If the story ends here, then the code generation phase seems to be nothing more than that compared to other phases.
 
@@ -895,10 +895,10 @@ B[Semantic Analysis Logic]
 A[Intermediate code]
 C[Object Code Generation]
 
-B-->|Impact|A
-A[Intermediate Code]-->|OK|B
-A-->|Conversion|C
-C-->|Predefined|A
+B--\>|Impact|A
+A[Intermediate Code]--\>|OK|B
+A--\>|Conversion|C
+C--\>|Predefined|A
 ```
 
 ### 5.1.3 Analysis
@@ -957,10 +957,10 @@ enum IntermediateCodeType
     Ret, // return t0(nullable)
     Label, // generate label t3
     // branch
-    BGT, // branch to t3 if t0> t1
-    BGE, // branch to t3 if t0 >= t1
-    BLT, // branch to t3 if t0 <t1
-    BLE, // branch to t3 if t0 <= t1
+    BGT, // branch to t3 if t0\> t1
+    BGE, // branch to t3 if t0 \>= t1
+    BLT, // branch to t3 if t0 \<t1
+    BLE, // branch to t3 if t0 \<= t1
     BEQ, // branch to t3 if t0 == t1
     BNE, // branch to t3 if t0 != t1
     GOTO // goto t3
@@ -1029,19 +1029,19 @@ D[Select]
 E[branch]
 F[loop]
 
-Program_flow-->fill_symbol_able
-Program_flow-->Use_label
-Program_flow-->other
+Program_flow--\>fill_symbol_able
+Program_flow--\>Use_label
+Program_flow--\>other
 
-Fill_in_the_symbol_table-->A
-Fill_in_the_symbol_table-->B
+Fill_in_the_symbol_table--\>A
+Fill_in_the_symbol_table--\>B
 
-Use_label-->B
-Use_label-->D
-Use_label-->E
-Use_label-->F
+Use_label--\>B
+Use_label--\>D
+Use_label--\>E
+Use_label--\>F
 
-Other-->C
+Other--\>C
 
 ```
 
@@ -1064,7 +1064,7 @@ In order to clearly indicate each pair of tags, the compiler has numbered the ta
 ```cpp
 void main()
 {
-    if (1 <2) {
+    if (1 \<2) {
         printf(1);
     } else {
         printf(2);
@@ -1156,7 +1156,7 @@ Let's take `while` as an example for illustration. The source code is as follows
 ```cpp
 void main()
 {
-    while(2 <1)
+    while(2 \<1)
     {
         printf(1);
     }
@@ -1178,15 +1178,15 @@ Label "" "" "" while_end_$0
 
 The declaration of the function has been implemented in the symbol table management part, and the focus of the code generation phase is how to resolve the function call. Before implementing this part, you may wish to review the memory structure of `MIPS`.
 
-<img src="http://www.it.uu.se/education/course/homepage/os/vt18/images/mips/MIPS_detailed_memory_layout.png" alt="img" style="zoom:50%;" / >
+\<img src="http://www.it.uu.se/education/course/homepage/os/vt18/images/mips/MIPS_detailed_memory_layout.png" alt="img" style="zoom:50%;" / \>
 
 The running stack of the function is `Stack segment`, which is a data area that grows downwards, operated by the `$sp` pointer. After understanding the basic overview of the function stack, we can begin to design the function stack. Because the course group did not give a fixed runtime stack standard, we can set the most appropriate memory allocation strategy according to our compiler architecture. For `Leopard`, because the symbol table stores the stack of local variables relative to the scope Address and heap address of global variables, so choose to store `$ra` at the bottom of the function stack, so that fixed access can be achieved through `0($sp)`. For function parameters, because relevant information is also stored in the symbol table, because we can treat it as a local variable, in addition to `$a0-$a3`, the stack space is also used to store them. In summary, the stack space can be shown as follows:
 
 ```mermaid
 graph TD
 
-Local_variables-->parameters
-parameters-->return_address
+Local_variables--\>parameters
+parameters--\>return_address
 ```
 
 The following is also explained through an example, the source code is as follows:
@@ -1313,10 +1313,10 @@ A[Expression];
 B[Term];
 C[Factor];
 
-A-->|ref|B;
-B-->|ref|C;
-B-->|val|A;
-C-->|val|B;
+A--\>|ref|B;
+B--\>|ref|C;
+B--\>|val|A;
+C--\>|val|B;
 ```
 
 Because the process of generating the intermediate code and the register are decoupled, there is no need to consider the allocation of the register at this time, and only need to generate a temporary variable for the result of each operation for storage. Note that all operations in the `C0` grammar can be converted to binary calculations in the form of infixes, so when register allocation, each expression-related instruction only needs three registers. Furthermore, if multiple intermediate codes of an expression are considered to be independent, then the final generated target code will also only require three registers. Speaking of this, I don't know if the reader feels a little bit. This is actually the workflow of a stack processor-each time two operands and operators are loaded onto the top of the stack for calculation, and then the result is stored back to memory. Although such an implementation is simple, it does not make full use of the `MIPS` register file, so the efficiency is not high.
@@ -1388,7 +1388,7 @@ A: No, the case where the array index is an expression only appears in the facto
 
 **Q: Why does `$sp` not point to the bottom of the stack (0x7FFFFFFC) at the beginning, but 0x7FFFEFFC.**
 
-<img src="https://i.loli.net/2020/11/13/qVUABWZNzTuQ6fg.png" alt="image-20201113115219439" style="zoom: 67%;" />
+\<img src="https://i.loli.net/2020/11/13/qVUABWZNzTuQ6fg.png" alt="image-20201113115219439" style="zoom: 67%;" /\>
 
 A: This is specified by the operating system, so the 4KB space above is reserved.
 
@@ -1471,7 +1471,7 @@ The basis of global optimization is the division of basic blocks and data flow g
 
   For non-conflicting variables, we can assign them the same global register. When allocating registers, you can choose the improved coloring method of `Briggs`, which solves the limitation of the two-coloring method of the `Chaitin` coloring method in the case of four nodes, and can obtain a more efficient register allocation strategy.
 
-  <img src="https://img-blog.csdnimg.cn/20201017205223798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmzNzFFNT_color_70FxNzFFNT_size=70FxNzFFNT_size Principle Notes_Shu Yi Jiangnan's IT Blog-CSDN Blog" style="zoom: 33%;" />
+  \<img src="https://img-blog.csdnimg.cn/20201017205223798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmzNzFFNT_color_70FxNzFFNT_size=70FxNzFFNT_size Principle Notes_Shu Yi Jiangnan's IT Blog-CSDN Blog" style="zoom: 33%;" /\>
 
 * Copy propagation
 
@@ -1484,7 +1484,7 @@ The basis of global optimization is the division of basic blocks and data flow g
   In the implementation, the basic block whose predecessor block is an invalid branch can be directly deleted. The following is an example for description.
 
   ```cpp
-  if 1> 2 goto invalid_block
+  if 1\> 2 goto invalid_block
       ...
   invalid_block:
    ...

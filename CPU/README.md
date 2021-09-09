@@ -9,7 +9,7 @@ This project contains a CPU of MIPS structure, a `five-stage` pipeline microproc
 
 ## Chapter One Model Top View
 
-<img src="https://i.loli.net/2021/09/08/PqKcgBIjZ6afVm9.png" alt="image-20210908210822976" style="zoom:67%;" />
+<img src="https://i.loli.net/2021/09/08/PqKcgBIjZ6afVm9.png" alt="image-20210908210822976"  />
 
 
 

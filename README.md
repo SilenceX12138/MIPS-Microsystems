@@ -68,3 +68,11 @@ This is a multi-pass compiler for `C0` programming language and MIPS assembly la
   <img src="https://i.loli.net/2021/09/09/21qjYHcZKU5FErP.jpg" alt="img" style="zoom:50%;" />
 
 * **Strongly suggest using `CMake` to execute this project**
+
+## Reference
+
+* BUAA Computer Organization Course, Autumn 2019.
+
+* BUAA Operating System Course, Spring 2020.
+
+* BUAA Compiler Technology Course, Autumn 2020.

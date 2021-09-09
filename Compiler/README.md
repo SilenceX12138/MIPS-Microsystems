@@ -878,7 +878,7 @@ Through the design and implementation of error handling, a few thoughts and expe
 
 Before completing the code generation job, I first reviewed the entire compilation process: five stages and symbol table management and error handling throughout. The reason for this is simple: the code generation phase is a real leap from the front end of the compiler to the back end, so it is particularly important to grasp the front-end and back-end boundaries.
 
-\<img src="https://media.geeksforgeeks.org/wp-content/uploads/compilerDesign.jpg" alt="img" style="zoom:50%;" /\>
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/compilerDesign.jpg" alt="img" style="zoom:50%;" />
 
 In class, the teacher said that the dividing line between the front and back ends is the dividing line between the intermediate code and the target code. It sounds like this. After all, no matter what the intermediate code looks like, as long as there is corresponding logic, the intermediate code can be translated into the machine on the specified target machine. Code, then the front end and back end of the compiler are decoupled. If the story ends here, then the code generation phase seems to be nothing more than that compared to other phases.
 
@@ -1180,7 +1180,7 @@ Label "" "" "" while_end_$0
 
 The declaration of the function has been implemented in the symbol table management part, and the focus of the code generation phase is how to resolve the function call. Before implementing this part, you may wish to review the memory structure of `MIPS`.
 
-\<img src="http://www.it.uu.se/education/course/homepage/os/vt18/images/mips/MIPS_detailed_memory_layout.png" alt="img" style="zoom:50%;" / \>
+<img src="http://www.it.uu.se/education/course/homepage/os/vt18/images/mips/MIPS_detailed_memory_layout.png" alt="img" style="zoom:50%;" / >
 
 The running stack of the function is `Stack segment`, which is a data area that grows downwards, operated by the `$sp` pointer. After understanding the basic overview of the function stack, we can begin to design the function stack. Because the course group did not give a fixed runtime stack standard, we can set the most appropriate memory allocation strategy according to our compiler architecture. For `Leopard`, because the symbol table stores the stack of local variables relative to the scope Address and heap address of global variables, so choose to store `$ra` at the bottom of the function stack, so that fixed access can be achieved through `0($sp)`. For function parameters, because relevant information is also stored in the symbol table, because we can treat it as a local variable, in addition to `$a0-$a3`, the stack space is also used to store them. In summary, the stack space can be shown as follows:
 
@@ -1390,7 +1390,7 @@ A: No, the case where the array index is an expression only appears in the facto
 
 **Q: Why does `$sp` not point to the bottom of the stack (0x7FFFFFFC) at the beginning, but 0x7FFFEFFC.**
 
-\<img src="https://i.loli.net/2020/11/13/qVUABWZNzTuQ6fg.png" alt="image-20201113115219439" style="zoom: 67%;" /\>
+<img src="https://i.loli.net/2020/11/13/qVUABWZNzTuQ6fg.png" alt="image-20201113115219439" style="zoom: 67%;" />
 
 A: This is specified by the operating system, so the 4KB space above is reserved.
 
@@ -1473,7 +1473,7 @@ The basis of global optimization is the division of basic blocks and data flow g
 
   For non-conflicting variables, we can assign them the same global register. When allocating registers, you can choose the improved coloring method of `Briggs`, which solves the limitation of the two-coloring method of the `Chaitin` coloring method in the case of four nodes, and can obtain a more efficient register allocation strategy.
 
-  \<img src="https://img-blog.csdnimg.cn/20201017205223798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmzNzFFNT_color_70FxNzFFNT_size=70FxNzFFNT_size Principle Notes_Shu Yi Jiangnan's IT Blog-CSDN Blog" style="zoom: 33%;" /\>
+  <img src="https://img-blog.csdnimg.cn/20201017205223798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmzNzFFNT_color_70FxNzFFNT_size=70FxNzFFNT_size Principle Notes_Shu Yi Jiangnan's IT Blog-CSDN Blog" style="zoom: 33%;" />
 
 * Copy propagation
 

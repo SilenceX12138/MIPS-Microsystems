@@ -55,3 +55,12 @@ This is a basic operating system with Linux Kernel under MIPS architecture. When
 
 > **Note: Theoretically, this OS is able to be deployed on an ARM micro controller like `Raspberry PI`.**
 
+## Compiler
+
+> **Please refer to the project [README](https://github.com/SilenceX12138/MIPS-Microsystems/tree/master/Compiler) for detailed information.**
+
+This is a multi-pass compiler for `C0` programming language and MIPS assembly language.
+
+* This compiler is designed to have two separate parts, front end and back end.
+* Below is an example for its compiling process
+* **Strongly suggest using `CMake` to execute this project**

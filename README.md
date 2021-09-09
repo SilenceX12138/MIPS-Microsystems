@@ -62,5 +62,9 @@ This is a basic operating system with Linux Kernel under MIPS architecture. When
 This is a multi-pass compiler for `C0` programming language and MIPS assembly language.
 
 * This compiler is designed to have two separate parts, front end and back end.
+
 * Below is an example for its compiling process
+
+  <img src="https://i.loli.net/2021/09/09/21qjYHcZKU5FErP.jpg" alt="img" style="zoom:50%;" />
+
 * **Strongly suggest using `CMake` to execute this project**

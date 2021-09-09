@@ -72,7 +72,5 @@ This is a multi-pass compiler for `C0` programming language and MIPS assembly la
 ## Reference
 
 * BUAA Computer Organization Course, Autumn 2019.
-
 * BUAA Operating System Course, Spring 2020.
-
 * BUAA Compiler Technology Course, Autumn 2020.
